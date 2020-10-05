@@ -1,6 +1,8 @@
 # kubernetes-cheat-sheet
 
 
+# Basic commands 
+
 # To find kubectl version
 ```kubectl version```
 
@@ -94,3 +96,79 @@ Contexts:
 ```kubectl config use-context <context-name>```
 
 
+# Logs
+
+# Print the logs for a pod
+
+```kubectl logs <pod_name>```
+ 
+
+# Print the logs for the last hour for a pod
+
+```kubectl logs --since=1h <pod_name>```
+  
+
+# Print the logs for a container in a pod
+
+```kubectl logs -c <container_name> <pod_name>```
+ 
+
+# View the logs for a previously failed pod
+
+```kubectl logs --previous <pod_name>```
+ 
+ 
+# Events
+ 
+# List recent events for all resources in the system
+ 
+ ```kubectl get events```
+  
+ 
+# List Warnings only
+ 
+ ```kubectl get events --field-selector type=Warning```
+  
+# List events but exclude Pod events
+ 
+``` kubectl get events --field-selector involvedObject.kind!=Pod```
+  
+# ReplicaSets
+
+# List ReplicaSets
+
+```kubectl get replicasets```
+ 
+# Display the detailed state of one or more ReplicaSets
+
+```kubectl describe replicasets <replicaset_name>```
+
+# Scale a ReplicaSet
+
+```kubectl scale --replicas=[count] ```
+ 
+
+#Services
+
+# List one or more services
+
+```kubectl get services```
+ 
+
+# Display the detailed state of a service
+
+```kubectl describe services```
+ 
+
+# Expose a replication controller, service, deployment or pod as a new Kubernetes service
+
+```kubectl expose deployment [deployment_name]```
+ 
+
+# Edit and update the definition of one or more services
+
+```kubectl edit services```
+ 
+
+
+ 
