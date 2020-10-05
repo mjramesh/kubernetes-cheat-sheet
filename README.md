@@ -68,3 +68,29 @@ Pods:
 # Specify a container: 
 ```kubectl exec -ti <pod-name> -c <container> sh ```
 
+Secrets:
+
+# Creating a secret without a YAML manifest:
+```kubectl create secret generic <name> --from-literal=<key>=<value>```
+
+```kubectl create secret generic <name> --from-file=key=./file.txt```
+
+# Querying secret values via the CLI:
+
+```kubectl get secret <secret-name> -o jsonpath=”{.data.<key-name>}”```
+
+Contexts:
+
+# Get list of contexts
+
+```kubectl config get-contexts```
+
+# Get the current context
+
+```kubectl config current-context <context-name>```
+
+# Switch to current context
+
+```kubectl config use-context <context-name>```
+
+
